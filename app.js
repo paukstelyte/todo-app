@@ -6,19 +6,20 @@ const input = document.getElementById("todo-input");
 const list = document.getElementById("todo-list");
 const themeToggle = document.getElementById("theme-toggle");
 
+// "pink" is the default theme (bright pink background); "dark" is the alternative.
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
   themeToggle.textContent = theme === "dark" ? "☀️" : "🌙";
 }
 
 themeToggle.addEventListener("click", () => {
-  const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  const next = current === "dark" ? "light" : "dark";
+  const current = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "pink";
+  const next = current === "dark" ? "pink" : "dark";
   localStorage.setItem(THEME_KEY, next);
   applyTheme(next);
 });
 
-applyTheme(localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "light");
+applyTheme(localStorage.getItem(THEME_KEY) === "dark" ? "dark" : "pink");
 
 function loadTodos() {
   const raw = localStorage.getItem(STORAGE_KEY);

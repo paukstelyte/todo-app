@@ -6,6 +6,8 @@
 <title>To-Do List</title>
 <link rel="stylesheet" href="style.css">
 <script>
+  // Applies the saved theme before first paint to avoid a flash of the
+  // wrong theme. "pink" is the default and needs no attribute set.
   (function () {
     var saved = localStorage.getItem("theme");
     if (saved === "dark") document.documentElement.setAttribute("data-theme", "dark");
@@ -16,7 +18,7 @@
   <div class="app">
     <div class="app-header">
       <h1>To-Do List</h1>
-      <button id="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
+      <button id="theme-toggle" type="button" aria-label="Toggle pink/dark mode">🌙</button>
     </div>
     <form id="todo-form">
       <input type="text" id="todo-input" placeholder="Add a new task..." autocomplete="off">
